@@ -18,10 +18,12 @@ const userSchema = new mongoose.Schema({
         type : Date ,
         default : ""
     },
-    blogs: {
-        type : mongoose.Schema.Types.ObjectId,
-        ref: 'Blog',
-    }
+    blogs:[
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref: 'Blog',
+        }
+    ] 
 },{
     timestamps : true 
 })

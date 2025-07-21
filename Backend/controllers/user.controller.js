@@ -39,7 +39,7 @@ export async function register(req,res){
         });
         const savedUser = await newUser.save();
 
-        res.status(201).json({
+        return res.status(201).json({
             message: 'User registered successfully',
             data: savedUser,
             error: false,
@@ -47,7 +47,7 @@ export async function register(req,res){
         });
     } catch (error) {
         console.error('Error in register:', error);
-        res.status(500).json({
+        return res.status(500).json({
             message : 'Internal server error during registration',
             error : true ,
             success : false 
@@ -100,7 +100,7 @@ export async function login(req, res) {
         res.cookie('accessToken',accessToken,cookiesOption)
         res.cookie('refreshToken',refreshToken,cookiesOption)
 
-        res.status(200).json({
+        return res.status(200).json({
             message: 'Login successful',
             data: {
                 accessToken,
@@ -112,7 +112,7 @@ export async function login(req, res) {
 
     } catch (error) {
         console.error('Error in login:', error);
-        res.status(500).json({
+        return res.status(500).json({
             message: 'Internal server error during login',
             error: true,
             success: false
@@ -156,7 +156,7 @@ export async function logout(req, res) {
                 success: false
             });
         }
-        res.status(200).json({
+        return res.status(200).json({
             message: 'Logout successful',
             error: false,
             success: true
@@ -164,7 +164,7 @@ export async function logout(req, res) {
 
     } catch (error) {
         console.error('Error in logout:', error);
-        res.status(500).json({
+        return res.status(500).json({
             message: 'Internal server error during logout',
             error: true,
             success: false

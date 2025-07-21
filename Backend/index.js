@@ -7,6 +7,7 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
 import userRouter from './routes/user.route.js';
+import blogRouter from './routes/blog.route.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 );
 
 app.use('/api/user',userRouter)
+app.use('/api/blog',blogRouter)
 
 connectDB().then(()=>{
     app.listen(PORT, () => {
