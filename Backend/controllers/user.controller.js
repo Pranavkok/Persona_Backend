@@ -1,7 +1,7 @@
 import UserModel from '../models/user.model.js';
 import bcrypt from 'bcryptjs';
-import genarateAccessToken from '../utils/generateAccessToken.js';
-import genarateRefreshToken from '../utils/generateRefreshToken.js';
+import genarateAccessToken from '../utils/genarateAccessToken.js';
+import genarateRefreshToken from '../utils/genarateRefreshToken.js';
 
 export async function register(req,res){
     try {

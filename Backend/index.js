@@ -6,7 +6,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/db.js';
-import userRouter from './routes/user.js';
+import userRouter from './routes/user.route.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
